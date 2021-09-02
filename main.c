@@ -19,7 +19,7 @@ void TIM2_Init(){
 	TIM2->CNT = 0;
 	TIM2->CCMR1 = 0x0068; //PWM mode for the timer
 	TIM2->CCER |= 1; //Enable channel 1 as output
-	TIM2->CCR1 = 1500; // Pulse width for PWM
+	TIM2->CCR1 = 500; // Pulse width for PWM
 }
 
 void TIM4_ms_Delay(uint32_t delay){
@@ -39,11 +39,14 @@ int main(){
 	TIM2->CR1 |= 1;
 	while(1){
 
-		if(TIM2->CCR1 < 2000){
-			TIM2->CCR1 = TIM2->CCR1 + 100;
+		if(TIM2->CCR1 < 2500){
+			TIM2->CCR1 = TIM2->CCR1 + 50;
+			TIM4_ms_Delay(50);
 		}
 		else{
-			TIM2->CCR1 = 1000;
+			TIM2->CCR1 = 500;
+			TIM4_ms_Delay(50);
 		}
 	}
 }
+
