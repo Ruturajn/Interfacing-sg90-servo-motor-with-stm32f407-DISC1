@@ -18,7 +18,7 @@ void TIM2_Init(){
 	TIM2->PSC = 16-1; //Setting the clock frequency to 1MHz.
 	TIM2->ARR = 20000; // Total period of the timer
 	TIM2->CNT = 0;
-	TIM2->CCMR1 = 0x0068; //PWM mode for the timer
+	TIM2->CCMR1 = 0x0060; //PWM mode for the timer
 	TIM2->CCER |= 1; //Enable channel 1 as output
 	TIM2->CCR1 = 500; // Pulse width for PWM
 }
