@@ -5,6 +5,7 @@
 
 void GPIO_Init(void);
 void TIM2_Init(void);
+void TIM4_ms_Delay(uint32_t delay);
 
 void GPIO_Init(){
 	RCC->AHB1ENR |= 1; //Enable GPIOA clock
